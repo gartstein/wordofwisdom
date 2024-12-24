@@ -28,13 +28,14 @@ This repository contains a test task for a Server Engineer position. The goal is
 │   ├── client/             # Dockerfile for the client
 ├── client/
 │   ├── main.go             # Main client implementation
-│   ├── pow_solver.go       # PoW solver implementation
 ├── server/
 │   ├── main.go             # Main server implementation
-│   ├── pow.go              # Proof of Work implementation
-│   ├── quotes.txt          # Collection of quotes
+│   ├── pow                 # Proof of Work implementation
+│   ├── tcp                 # TCP server implementation
 ├── pkg/
-│   ├── mock_conn.go        # Mock connection utilities for testing
+│   ├── mock.go             # Mock connection utilities for testing
+│   ├── log.go              # Logging
+│   ├── context.go          # Helpers for context
 ├── Makefile                # Build and run automation
 ├── go.mod                  # Go module dependencies
 ├── go.sum                  # Go module checksum
