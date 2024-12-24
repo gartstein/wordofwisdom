@@ -1,5 +1,5 @@
 # Use the official Golang image to build the server
-FROM golang:1.18 as builder
+FROM golang:1.18 AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build the server binary
-RUN go build -o server ./server/main.go
+RUN go build -o bin ./server/main.go
 
 # Use a lightweight image for running the server
 FROM debian:bullseye-slim
@@ -17,10 +17,10 @@ FROM debian:bullseye-slim
 WORKDIR /app
 
 # Copy the server binary from the builder stage
-COPY --from=builder /app/server /app/server
+COPY --from=builder /app/bin /app/bin
 
 # Expose the server port
 EXPOSE 8080
 
-# Set entrypoint to run the server
-ENTRYPOINT ["./server"]
+# Set entrypoint to run the server binary
+ENTRYPOINT ["./bin"]
